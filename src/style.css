@@ -1,7 +1,7 @@
 /* ===== tpl-workspace Design Tokens =====
  * 颜色单一事实源：父工程 specs/005-theme/var.md
  * 角色命名（--color-*）为主，DESIGN.md 色彩名（--indigo 等）为别名。
- * 两套皮肤：:root 挂 default（破茧亮色），[data-theme="dark"] 挂 dark（护眼暗色）。
+ * 两套皮肤：:root 挂 default（亮色），[data-theme="dark"] 挂 dark（护眼暗色）。
  */
 
 :root {
@@ -31,12 +31,12 @@
   /* Disabled bg / skeleton 霜白 */
   --color-disabled: #EEECE6;
 
-  /* ===== 角色变量 · 扩展色（var.md §6） ===== */
+  /* ===== 角色变量 · 扩展色（var.md §5） ===== */
   --color-wechat: #07C160;
   --color-placeholder: #B0ADA8;
   --color-divider: #F0ECE6;
 
-  /* ===== DESIGN.md 色彩名别名（var.md §8，指向角色变量，随皮肤联动） ===== */
+  /* ===== DESIGN.md 色彩名别名（var.md §7，指向角色变量，随皮肤联动） ===== */
   --indigo: var(--color-primary);
   --gold: var(--color-accent);
   --verdigris: var(--color-success);
@@ -87,9 +87,8 @@
   --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ===== 暗色皮肤（var.md §7：护眼暗色，反色但保留靛青/金曦品牌识别度） =====
+/* ===== 暗色皮肤（var.md §6：护眼暗色，反色但保留靛青/金曦品牌识别度） =====
  * 仅覆盖角色变量；色彩名别名经 var() 引用自动联动。
- * 语义色（掌握度/错因/学科）暗值待视觉 QA 定稿，当前沿用 default（var.md §7 注）。
  * 注意：本块必须位于 :root 之后（同特异性下后声明者生效）。
  */
 [data-theme='dark'] {

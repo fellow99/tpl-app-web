@@ -19,7 +19,7 @@
   1. 打开顶栏语言下拉框（`lang-select`）
   2. 选择 "English"
 - **预期结果**：
-  - 顶栏品牌名由"tpl-workspace"变为 "Day Day Up"（或对应 `app.name` 英文文案）
+  - 顶栏品牌名保持 "tpl-workspace"（品牌名不随语言切换）
   - 页面标题、按钮等界面文案即时切换为英文，无需刷新
   - 下拉框显示选中 "English"
 

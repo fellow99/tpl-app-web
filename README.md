@@ -39,7 +39,7 @@ tpl-workspace/
 
 本工程**不引入**任何 UI 组件库（无 Element Plus / Vant / Naive UI），所有界面通过**纯 CSS + Design Tokens** 实现。全局样式集中在 `src/style.css`，定义完整的 10 色色板、3 套字体栈、4px 基准间距、圆角、阴影、字号阶梯与缓动曲线。页面组件使用 `<style scoped>` 实现样式隔离。
 
-> 设计依据：`../DESIGN.md` —「破茧」设计系统，色彩源于中国传统文房四色。
+> 设计依据：`../DESIGN.md` —设计系统，色彩源于中国传统文房四色。
 
 ### 模块化的分层架构
 

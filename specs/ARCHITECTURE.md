@@ -225,7 +225,7 @@ Stage 2: nginx:latest
 
 - **决策**：`package.json` 中没有任何 UI 库（无 Element Plus / Vant / Naive UI），仅依赖 `lucide-vue-next` 图标。
 - **实现**：`src/style.css` 定义完整的 Design Token 体系：10 色色板、3 套字体栈、4px 基准间距、圆角/阴影/字号阶梯/缓动曲线。
-- **依据**：工作区根目录 `DESIGN.md`（v1.0，2026-08-10）设计系统「破茧」隐喻，色彩源于中国传统文房四色，移动端优先。
+- **依据**：工作区根目录 `DESIGN.md`（v1.0，2026-08-10）设计系统 tpl-workspace隐喻，色彩源于中国传统文房四色，移动端优先。
 
 ### 6.2 Pinia Composition API Store
 

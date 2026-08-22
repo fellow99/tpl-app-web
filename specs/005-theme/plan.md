@@ -59,13 +59,13 @@ const DARK_MEDIA_QUERY = '(prefers-color-scheme: dark)'
 ```css
 /* src/style.css（结构示意） */
 :root {
-  /* 角色变量 29 项（var.md §3~§6，default 值） */
+  /* 角色变量 29 项（var.md §3~§5，default 值） */
   --color-primary: #3B5998; /* ... */
-  /* DESIGN.md 色彩名别名 10 项（var.md §8） */
+  /* DESIGN.md 色彩名别名 10 项（var.md §7） */
   --indigo: var(--color-primary); /* ... */
 }
 [data-theme='dark'] {
-  /* 仅覆盖 10 项核心角色变量（var.md §7），别名经 var() 自动联动 */
+  /* 仅覆盖 10 项核心角色变量（var.md §6），别名经 var() 自动联动 */
   --color-primary: #5B7DB1; /* ... */
 }
 ```
@@ -90,9 +90,9 @@ const DARK_MEDIA_QUERY = '(prefers-color-scheme: dark)'
 
 ### 4.3 CSS 变量契约（default / dark）
 
-色值单一来源为父工程 `var.md`；本工程 `src/style.css` 手工映射（var.md §9：CSS 原样 `--color-*`）。
+色值单一来源为父工程 `var.md`；本工程 `src/style.css` 手工映射（var.md §8：CSS 原样 `--color-*`）。
 
-| 角色变量 | default（破茧亮色） | dark（护眼暗色） |
+| 角色变量 | default（亮色） | dark（护眼暗色） |
 |---|---|---|
 | `--color-primary` | `#3B5998` | `#5B7DB1` |
 | `--color-accent` | `#E8923C` | `#E8923C` |
@@ -111,7 +111,7 @@ const DARK_MEDIA_QUERY = '(prefers-color-scheme: dark)'
 ### 5.1 样式变量与暗色皮肤（src/style.css）
 
 - 原 10 色彩名变量改写为别名：`--indigo: var(--color-primary)` … `--frost: var(--color-disabled)`，变量名与引用方（各页面 `var(--indigo)` 等）零改动。
-- `:root` 块之后新增 `[data-theme='dark']` 块，仅覆盖 10 项核心角色变量（var.md §7）；同特异性（0,1,0）下依赖源码顺序后置生效。
+- `:root` 块之后新增 `[data-theme='dark']` 块，仅覆盖 10 项核心角色变量（var.md §6）；同特异性（0,1,0）下依赖源码顺序后置生效。
 - 原硬编码衍生色改为经 `color-mix` 从角色变量派生，保证两套皮肤行为一致：`.btn-primary:hover` / `.btn-accent:hover`（基础色 85% + 黑 15%）、`.form-input:focus` / `.form-input.error:focus` 焦点圈（基础色 15% + 透明）、`.btn-wechat` 改用 `var(--color-wechat)`（值不变，收敛为角色变量）。
 
 ### 5.2 三态主题 store（src/stores/theme.ts）

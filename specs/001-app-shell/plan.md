@@ -88,7 +88,7 @@ export interface ApiResponse<T = unknown> {
 
 ### 3.4 设计令牌结构（`src/style.css` `:root`）
 
-- **色彩（10）**：`--indigo #3B5998`（主色）、`--gold #E8923C`（CTA）、`--verdigris #4AA878`（成功/Mastered）、`--cinnabar #D94E3C`（错误）、`--paper #F7F5F0`（页面背景）、`--white #FFFFFF`（卡片/输入背景）、`--ink #292522`（正文）、`--inkstone #6E6A65`（次级文字）、`--silver #D9D4CC`（边框）、`--frost #EEECE6`（禁用/骨架）。
+- **色彩（10）**：`--indigo #3B5998`（主色）、`--gold #E8923C`（CTA）、`--verdigris #4AA878`（成功）、`--cinnabar #D94E3C`（错误）、`--paper #F7F5F0`（页面背景）、`--white #FFFFFF`（卡片/输入背景）、`--ink #292522`（正文）、`--inkstone #6E6A65`（次级文字）、`--silver #D9D4CC`（边框）、`--frost #EEECE6`（禁用/骨架）。
 - **字体栈（3）**：`--font-sans`（PingFang SC / HarmonyOS Sans / Microsoft YaHei / Noto Sans SC）、`--font-mono`（JetBrains Mono / Fira Code / SF Mono / Consolas）、`--font-number`（DIN Alternate / Arial Rounded MT Bold）。
 - **间距（8，4px 基准）**：`--space-xs 4px`、`--space-sm 8px`、`--space-md 12px`、`--space-lg 16px`、`--space-xl 24px`、`--space-2xl 32px`、`--space-3xl 48px`、`--space-4xl 64px`。
 - **圆角（4）**：`--radius-sm 6px`、`--radius-md 8px`、`--radius-lg 12px`、`--radius-pill 24px`。

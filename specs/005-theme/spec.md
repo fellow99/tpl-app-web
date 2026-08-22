@@ -13,7 +13,7 @@
 
 本模块为 tpl-app-web 提供「亮 + 暗」两套固定皮肤与三态切换能力，核心工作分四块：
 
-- **样式变量双皮肤**：`src/style.css` 按父工程 `var.md` 落地角色变量（`--color-*`）与 DESIGN.md 色彩名别名（`--indigo` 等 10 色），`:root` 挂 default（破茧亮色）值、`[data-theme="dark"]` 挂 dark（护眼暗色）值，现有页面经别名平滑迁移、零视觉回归。
+- **样式变量双皮肤**：`src/style.css` 按父工程 `var.md` 落地角色变量（`--color-*`）与 DESIGN.md 色彩名别名（`--indigo` 等 10 色），`:root` 挂 default（亮色）值、`[data-theme="dark"]` 挂 dark（护眼暗色）值，现有页面经别名平滑迁移、零视觉回归。
 - **三态主题状态**：`src/stores/theme.ts`（Pinia）维护 `light / dark / system` 三态（默认 `system`），localStorage `theme` 持久化，`system` 态经 `matchMedia('(prefers-color-scheme: dark)')` 解析并实时跟随系统。
 - **首屏防闪烁**：`index.html` 内联脚本在 body 渲染前解析三态并设置 `data-theme`，避免暗色用户刷新时闪过亮色。
 - **两个切换入口**：登录页右上角圆形 emoji 按钮（light↔dark 显式切换）；个人中心「偏好设置」区在「切换语言」下提供「切换主题」三态选择，两处共享同一 store 状态与持久化键。
@@ -46,7 +46,7 @@
 ### 3.1 样式变量与双皮肤（src/style.css）
 
 - **FR-005-021** 色彩名别名保留：既有 10 个 DESIGN.md 色彩名变量 MUST 保留为指向角色变量的别名（`--indigo: var(--color-primary)`、`--gold: var(--color-accent)`、`--verdigris`、`--cinnabar`、`--paper`、`--white`、`--ink`、`--inkstone`、`--silver`、`--frost`），MUST NOT 删除或改变其语义，现有页面 MUST 无视觉回归。
-- **FR-005-022** 双皮肤挂载：`:root` MUST 挂 default（破茧亮色）值，`[data-theme="dark"]` MUST 挂 dark（护眼暗色）值且 MUST 位于 `:root` 块之后；dark 值 MUST 与父工程 `var.md` §7 完全一致（`--color-primary: #5B7DB1`、`--color-bg: #1A1C1E`、`--color-surface: #26282B`、`--color-text: #E8E4DE` 等 10 项）。
+- **FR-005-022** 双皮肤挂载：`:root` MUST 挂 default（亮色）值，`[data-theme="dark"]` MUST 挂 dark（护眼暗色）值且 MUST 位于 `:root` 块之后；dark 值 MUST 与父工程 `var.md` §7 完全一致（`--color-primary: #5B7DB1`、`--color-bg: #1A1C1E`、`--color-surface: #26282B`、`--color-text: #E8E4DE` 等 10 项）。
 - **FR-005-023** 品牌主色：default 皮肤品牌主色 MUST 为靛青 `#3B5998`；dark 皮肤 MUST 为提亮靛青 `#5B7DB1`（保证深底对比度），金曦 `#E8923C` 两套皮肤保持一致以保留品牌识别度。
 - **FR-005-024** 别名联动：色彩名别名 MUST 仅在 `:root` 定义一次（经 `var()` 引用角色变量），dark 块 MUST NOT 重复定义别名；皮肤切换时别名取值 MUST 自动联动。
 
@@ -90,7 +90,7 @@
 - **主题三态（ThemeMode）**：`'light' | 'dark' | 'system'`，默认 `'system'`；持久化键 localStorage `theme`。
 - **解析皮肤（ResolvedTheme）**：`'light' | 'dark'`；`system` → `matchMedia('(prefers-color-scheme: dark)')` 动态解析。
 - **DOM 契约**：`document.documentElement.dataset.theme ∈ {'light','dark'}`；CSS 经 `:root`（default）与 `[data-theme="dark"]`（dark）切换变量集合。
-- **CSS 变量体系**：角色变量 `--color-*`（29 项，var.md §3~§6）+ DESIGN.md 色彩名别名（10 项，var.md §8）；字体/间距/圆角/阴影/字号等非颜色令牌不随皮肤变化。
+- **CSS 变量体系**：角色变量 `--color-*`（29 项，var.md §3~§5）+ DESIGN.md 色彩名别名（10 项，var.md §7）；字体/间距/圆角/阴影/字号等非颜色令牌不随皮肤变化。
 
 ## 5. 验收场景（Acceptance Scenarios）
 

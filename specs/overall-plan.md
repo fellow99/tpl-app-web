@@ -141,7 +141,7 @@ src/
 ### 3.6 纯 CSS 设计系统（`src/style.css`）
 
 - 在 `:root` 中以 CSS Custom Properties 定义设计令牌（design tokens）：
-  - **色彩**：`--indigo #3B5998`（主色）、`--gold #E8923C`（CTA 强调）、`--verdigris #4AA878`（成功/Mastered）、`--cinnabar #D94E3C`（错误）、`--paper #F7F5F0`（页面背景）、`--white`、`--ink #292522`（正文）、`--inkstone #6E6A65`（次级文本）、`--silver #D9D4CC`（边框）、`--frost #EEECE6`（禁用/骨架屏）
+  - **色彩**：`--indigo #3B5998`（主色）、`--gold #E8923C`（CTA 强调）、`--verdigris #4AA878`（成功）、`--cinnabar #D94E3C`（错误）、`--paper #F7F5F0`（页面背景）、`--white`、`--ink #292522`（正文）、`--inkstone #6E6A65`（次级文本）、`--silver #D9D4CC`（边框）、`--frost #EEECE6`（禁用/骨架屏）
   - **字体**：`--font-sans`（PingFang SC / HarmonyOS Sans / Microsoft YaHei / Noto Sans SC）、`--font-mono`、`--font-number`
   - **间距**：4px 基准，`--space-xs`(4) ~ `--space-4xl`(64)
   - **圆角**：`--radius-sm/md/lg/pill`
